@@ -6,107 +6,129 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Scaffold(
-        body: Column(
-          children: [
-            Container(
-              height: 200,
+      title: 'Drawer Example',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+      ),
+      home: HomePage(),
+    );
+  }
+}
+
+class HomePage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Drawer Example'),
+      ),
+      drawer: Drawer(
+        child: ListView(
+          padding: EdgeInsets.zero,
+          children: <Widget>[
+            DrawerHeader(
               decoration: BoxDecoration(
-                image: DecorationImage(
-                  image: AssetImage('assets/images/woman.png'),
-                  fit: BoxFit.cover,
-                ),
+                color: Colors.blue,
+              ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  Container(
+                    width: 80,
+                    height: 80,
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      image: DecorationImage(
+                        image: AssetImage('assets/profile_image.jpg'),
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                  ),
+                  SizedBox(height: 10),
+                  Text(
+                    'John Doe',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  Text(
+                    'john.doe@example.com',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 14,
+                    ),
+                  ),
+                ],
               ),
             ),
-            SizedBox(height: 20),
+            ListTile(
+              title: Text('Option 1'),
+              onTap: () {
+                // Action lorsque l'option 1 est sélectionnée
+              },
+            ),
+            ListTile(
+              title: Text('Option 2'),
+              onTap: () {
+                // Action lorsque l'option 2 est sélectionnée
+              },
+            ),
+            ListTile(
+              title: Text('Option 3'),
+              onTap: () {
+                // Action lorsque l'option 3 est sélectionnée
+              },
+            ),
+          ],
+        ),
+      ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
             Text(
-              "utilisateur de l'application",
+              'Bienvenue dans mon application',
               style: TextStyle(
                 fontSize: 24,
                 fontWeight: FontWeight.bold,
               ),
             ),
             SizedBox(height: 20),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                Column(
-                  children: [
-                    Text('Element'),
-                    Text('Rendez-vous'),
-                    Text('Suivi'),
-                    Text('Notification'),
-                  ],
-                ),
-                Column(
-                  children: [
-                    Text('Nombre'),
-                    Text('1'),
-                    Text('2'),
-                    Text('7'),
-                  ],
-                ),
-              ],
+            Text(
+              'Sélectionnez une option dans le tiroir',
+              style: TextStyle(
+                fontSize: 16,
+              ),
             ),
             SizedBox(height: 20),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                Column(
-                  children: [
-                    
-                    Text('Rendez-vous'),
-                Radio(
-                  value: 1,
-                  groupValue: null,
-                  onChanged: null,
+              children: <Widget>[
+                ElevatedButton(
+                  child: Text('Bouton 1'),
+                  onPressed: () {
+                    // Action lorsque le bouton 1 est pressé
+                  },
                 ),
-                    Text('Uegene'),
-                Radio(
-                  value: 2,
-                  groupValue: null,
-                  onChanged: null,
+                ElevatedButton(
+                  child: Text('Bouton 2'),
+                  onPressed: () {
+                    // Action lorsque le bouton 2 est pressé
+                  },
                 ),
-                   Text('Suivi'),
-                Radio(
-                  value: 3,
-                  groupValue: null,
-                  onChanged: null,
+                ElevatedButton(
+                  child: Text('Bouton 3'),
+                  onPressed: () {
+                    // Action lorsque le bouton 3 est pressé
+                  },
                 ),
-                
-                  ],
-                ),
-                Column(
-                  children: [
-                    Container(
-                      height: 100,
-                      width: 100,
-                      decoration: BoxDecoration(
-                        image: DecorationImage(
-                          image: AssetImage('assets/photo.jpg'),
-                          fit: BoxFit.cover,
-                        ),
-                      ),
-                    ),
-                    ElevatedButton(
-                      onPressed: () {
-                        // Action du bouton
-                      },
-                      child: Text('Envoyer'),
-                    ),
-                  ],
-                ),
-                Column(
-                  children: [
-                    
-                    Text('CLINIQUEZ'),
-                    ElevatedButton(
-                      onPressed: () {
-                        // Action du bouton
-                      },
-                      child: Text('Annuler'),
-                    ),
-                  ],
+                ElevatedButton(
+                  child: Text('Bouton 4'),
+                  onPressed: () {
+                    // Action lorsque le bouton 4 est pressé
+                  },
                 ),
               ],
             ),
